@@ -1,19 +1,22 @@
-name: Deploy
+name: "Deploying a CI/CD for .NET sample app using GitHub Actions"
 
 on:
   push:
-    branches: [ main ]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
+    branches: [ "master" ]
 jobs:
   build:
-    runs-on: windows-latest
+
+    runs-on: [ self-hosted, Windows, X64 ]
+
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Build
-        run: dotnet build
-     
+    # IIS Deployment
+    - name: Deploy to IIS Server
+      run: |
+        iisreset /stop
+        Copy-Item ./test/* C:\inetpub\test\Hello-World -Recurse -Force
+        iisreset /start
+    # - name: Curl the website as a smoke test
+    #   run: curl http://localhost/
+
+   
