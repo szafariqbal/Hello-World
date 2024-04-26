@@ -3,9 +3,7 @@ name: "Deploying a CI/CD for .NET sample app using GitHub Actions"
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+ 
 jobs:
   build:
 
@@ -22,8 +20,8 @@ jobs:
         include-prerelease: True
     - name: Display dotnet version
       run: dotnet --version
-    - name: Restore dependencies
-      run: dotnet restore
+ #   - name: Restore dependencies
+ #     run: dotnet restore
     # dotnet build and publish
     - name: Build with dotnet
       run: dotnet build --configuration Release --no-restore
