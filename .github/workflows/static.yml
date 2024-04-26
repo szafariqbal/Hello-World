@@ -32,7 +32,7 @@ jobs:
     - name: Deploy to IIS Server
       run: |
         iisreset /stop
-        Copy-Item Copy-Item ./* C:\inetpub\test\ -Recurse -Force
+        Copy-Item ./* C:\inetpub\test\ -Recurse -Force
         iisreset /start
     # - name: Curl the website as a smoke test
     #   run: curl http://localhost/
