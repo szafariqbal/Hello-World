@@ -22,14 +22,14 @@ jobs:
         include-prerelease: True
     - name: Display dotnet version
       run: dotnet --version
-#    - name: Restore dependencies
-#      run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
     # dotnet build and publish
-#    - name: Build with dotnet
-#      run: dotnet build --configuration Release --no-restore
-#    - name: dotnet publish
-#      run: |
-#        dotnet publish --configuration Release --no-restore
+    - name: Build with dotnet
+      run: dotnet build --configuration Release --no-restore
+    - name: dotnet publish
+      run: |
+        dotnet publish --configuration Release --no-restore
     # IIS Deployment
     - name: Deploy to IIS Server
       run: |
